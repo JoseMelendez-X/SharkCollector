@@ -18,6 +18,7 @@
 		590BCC3F1F8C8E8F00C2D453 /* AddBorrowerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC3E1F8C8E8F00C2D453 /* AddBorrowerViewController.swift */; };
 		590BCC431F8C8F3100C2D453 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC421F8C8F3100C2D453 /* PaymentsTableViewController.swift */; };
 		590BCC451F8C8F3E00C2D453 /* BorrowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC441F8C8F3E00C2D453 /* BorrowersTableViewController.swift */; };
+		590BCC481F8C94D200C2D453 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 590BCC471F8C942D00C2D453 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,13 +30,13 @@
 		590BCC251F8C885400C2D453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		590BCC281F8C885400C2D453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		590BCC2A1F8C885400C2D453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		590BCC331F8C899D00C2D453 /* GoogleService-Info (2).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (2).plist"; path = "../../../../../../Downloads/GoogleService-Info (2).plist"; sourceTree = "<group>"; };
 		590BCC381F8C8E4500C2D453 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		590BCC3A1F8C8E4E00C2D453 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		590BCC3C1F8C8E7000C2D453 /* BorrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowerViewController.swift; sourceTree = "<group>"; };
 		590BCC3E1F8C8E8F00C2D453 /* AddBorrowerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBorrowerViewController.swift; sourceTree = "<group>"; };
 		590BCC421F8C8F3100C2D453 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
 		590BCC441F8C8F3E00C2D453 /* BorrowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowersTableViewController.swift; sourceTree = "<group>"; };
+		590BCC471F8C942D00C2D453 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C02DC6A60FA912D9C28A7723 /* Pods-sharkCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharkCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +87,7 @@
 				590BCC251F8C885400C2D453 /* Assets.xcassets */,
 				590BCC271F8C885400C2D453 /* LaunchScreen.storyboard */,
 				590BCC2A1F8C885400C2D453 /* Info.plist */,
-				590BCC331F8C899D00C2D453 /* GoogleService-Info (2).plist */,
+				590BCC471F8C942D00C2D453 /* GoogleService-Info.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -207,6 +208,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				590BCC481F8C94D200C2D453 /* GoogleService-Info.plist in Resources */,
 				590BCC291F8C885400C2D453 /* LaunchScreen.storyboard in Resources */,
 				590BCC261F8C885400C2D453 /* Assets.xcassets in Resources */,
 				590BCC241F8C885400C2D453 /* Main.storyboard in Resources */,
