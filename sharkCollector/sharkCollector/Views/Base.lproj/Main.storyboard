@@ -144,7 +144,7 @@
             </objects>
             <point key="canvasLocation" x="-472" y="994"/>
         </scene>
-        <!--Borrower View Controller-->
+        <!--SharkCollector-->
         <scene sceneID="YL3-R9-CAc">
             <objects>
                 <viewController id="BKl-c0-JuP" customClass="BorrowerViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
@@ -194,8 +194,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="vud-Nr-6ee"/>
                     </view>
+                    <navigationItem key="navigationItem" title="SharkCollector" id="WvO-3Q-ojg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Qjc-aK-x27"/>
+                    </navigationItem>
                     <connections>
-                        <segue destination="lof-vX-tlr" kind="show" identifier="toAddBorrowerVC" id="gto-zV-u5f"/>
                         <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymenstTVC" id="e0l-9Q-cJf"/>
                     </connections>
                 </viewController>
@@ -203,7 +205,7 @@
             </objects>
             <point key="canvasLocation" x="1665.217391304348" y="196.46739130434784"/>
         </scene>
-        <!--Borrowers Table View Controller-->
+        <!--Borrowers-->
         <scene sceneID="hj8-Xg-JVP">
             <objects>
                 <tableViewController id="H44-9o-Y7m" customClass="BorrowersTableViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
@@ -217,7 +219,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="bl8-Yo-gKZ" customClass="borrowers">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="borrowers" id="bl8-Yo-gKZ" customClass="borrowers">
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl8-Yo-gKZ" id="fPh-iZ-yK6">
@@ -231,17 +233,17 @@
                             <outlet property="delegate" destination="H44-9o-Y7m" id="x9L-hV-URS"/>
                         </connections>
                     </tableView>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="kjR-Pl-3cL"/>
-                    </toolbarItems>
-                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationItem key="navigationItem" title="Borrowers" id="06G-YS-KiL">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vG0-bt-FVz"/>
+                    </navigationItem>
                     <connections>
                         <segue destination="BKl-c0-JuP" kind="show" identifier="toBorrowerVC" id="SkH-qm-uLn"/>
+                        <segue destination="lof-vX-tlr" kind="show" identifier="toAddBorrowerVC" id="NWb-1L-CA3"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qz8-Ov-BkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="355" y="188"/>
+            <point key="canvasLocation" x="651" y="196"/>
         </scene>
         <!--Add Borrower View Controller-->
         <scene sceneID="a38-kw-Gac">
@@ -278,7 +280,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOA-QY-41O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2442" y="196"/>
+            <point key="canvasLocation" x="1665" y="-513"/>
         </scene>
         <!--Payments Table View Controller-->
         <scene sceneID="4vy-fZ-AHz">
@@ -289,7 +291,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="74" id="hyh-2h-DZn" customClass="payments">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="payments" rowHeight="74" id="hyh-2h-DZn" customClass="payments">
                                 <rect key="frame" x="0.0" y="28" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hyh-2h-DZn" id="I6c-Pl-735">
