@@ -19,6 +19,8 @@
 		590BCC431F8C8F3100C2D453 /* PaymentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC421F8C8F3100C2D453 /* PaymentsTableViewController.swift */; };
 		590BCC451F8C8F3E00C2D453 /* BorrowersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC441F8C8F3E00C2D453 /* BorrowersTableViewController.swift */; };
 		590BCC481F8C94D200C2D453 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 590BCC471F8C942D00C2D453 /* GoogleService-Info.plist */; };
+		590BCC4C1F8D66A300C2D453 /* Borrower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC4B1F8D66A200C2D453 /* Borrower.swift */; };
+		590BCC4E1F8D67D200C2D453 /* Payments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC4D1F8D67D200C2D453 /* Payments.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		590BCC421F8C8F3100C2D453 /* PaymentsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsTableViewController.swift; sourceTree = "<group>"; };
 		590BCC441F8C8F3E00C2D453 /* BorrowersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorrowersTableViewController.swift; sourceTree = "<group>"; };
 		590BCC471F8C942D00C2D453 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		590BCC4B1F8D66A200C2D453 /* Borrower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Borrower.swift; sourceTree = "<group>"; };
+		590BCC4D1F8D67D200C2D453 /* Payments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Payments.swift; sourceTree = "<group>"; };
 		C02DC6A60FA912D9C28A7723 /* Pods-sharkCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharkCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -73,6 +77,7 @@
 		590BCC1D1F8C885400C2D453 /* sharkCollector */ = {
 			isa = PBXGroup;
 			children = (
+				590BCC4A1F8D666500C2D453 /* Model */,
 				590BCC311F8C886C00C2D453 /* Controller */,
 				590BCC321F8C887600C2D453 /* Views */,
 				590BCC301F8C885D00C2D453 /* Resources */,
@@ -127,6 +132,15 @@
 				590BCC441F8C8F3E00C2D453 /* BorrowersTableViewController.swift */,
 			);
 			path = TableViewControllers;
+			sourceTree = "<group>";
+		};
+		590BCC4A1F8D666500C2D453 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				590BCC4B1F8D66A200C2D453 /* Borrower.swift */,
+				590BCC4D1F8D67D200C2D453 /* Payments.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		5F313D057B4E04C582D5D991 /* Frameworks */ = {
@@ -273,8 +287,10 @@
 				590BCC391F8C8E4500C2D453 /* SignInViewController.swift in Sources */,
 				590BCC1F1F8C885400C2D453 /* AppDelegate.swift in Sources */,
 				590BCC3F1F8C8E8F00C2D453 /* AddBorrowerViewController.swift in Sources */,
+				590BCC4C1F8D66A300C2D453 /* Borrower.swift in Sources */,
 				590BCC451F8C8F3E00C2D453 /* BorrowersTableViewController.swift in Sources */,
 				590BCC3D1F8C8E7000C2D453 /* BorrowerViewController.swift in Sources */,
+				590BCC4E1F8D67D200C2D453 /* Payments.swift in Sources */,
 				590BCC431F8C8F3100C2D453 /* PaymentsTableViewController.swift in Sources */,
 				590BCC3B1F8C8E4E00C2D453 /* SignUpViewController.swift in Sources */,
 			);
