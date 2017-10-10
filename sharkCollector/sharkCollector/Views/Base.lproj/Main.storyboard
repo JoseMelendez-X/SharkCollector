@@ -75,6 +75,10 @@
                         <viewLayoutGuide key="safeArea" id="oo1-ce-F25"/>
                     </view>
                     <navigationItem key="navigationItem" id="Fsa-TD-8Ll"/>
+                    <connections>
+                        <segue destination="Vvz-02-W3w" kind="show" identifier="toSignUpVC" id="ML0-qn-Zcd"/>
+                        <segue destination="H44-9o-Y7m" kind="show" identifier="toBorrowersTVC" id="bsk-Vg-roZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ylP-Yn-X8C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -132,10 +136,13 @@
                         <color key="backgroundColor" red="0.32694637775421143" green="0.39890965819358826" blue="0.46971261501312256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="vMB-wr-VgN"/>
                     </view>
+                    <connections>
+                        <segue destination="H44-9o-Y7m" kind="show" identifier="toBorrowersTVC" id="dfV-Lh-ljG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qtc-DL-VfT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="250.72463768115944" y="195.6521739130435"/>
+            <point key="canvasLocation" x="-472" y="994"/>
         </scene>
         <!--Borrower View Controller-->
         <scene sceneID="YL3-R9-CAc">
@@ -187,6 +194,10 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="vud-Nr-6ee"/>
                     </view>
+                    <connections>
+                        <segue destination="lof-vX-tlr" kind="show" identifier="toAddBorrowerVC" id="gto-zV-u5f"/>
+                        <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymenstTVC" id="e0l-9Q-cJf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFk-69-WHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -220,10 +231,17 @@
                             <outlet property="delegate" destination="H44-9o-Y7m" id="x9L-hV-URS"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="kjR-Pl-3cL"/>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="BKl-c0-JuP" kind="show" identifier="toBorrowerVC" id="SkH-qm-uLn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qz8-Ov-BkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953.62318840579712" y="196.46739130434784"/>
+            <point key="canvasLocation" x="355" y="188"/>
         </scene>
         <!--Add Borrower View Controller-->
         <scene sceneID="a38-kw-Gac">
@@ -260,7 +278,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOA-QY-41O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2342.0289855072465" y="196.46739130434784"/>
+            <point key="canvasLocation" x="2442" y="196"/>
         </scene>
         <!--Payments Table View Controller-->
         <scene sceneID="4vy-fZ-AHz">
@@ -311,7 +329,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9m-gJ-BOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3050.7246376811595" y="195.6521739130435"/>
+            <point key="canvasLocation" x="1665" y="994"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="ZoT-Rl-qCR">
@@ -332,4 +350,7 @@
             <point key="canvasLocation" x="-1228" y="196"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="bsk-Vg-roZ"/>
+    </inferredMetricsTieBreakers>
 </document>
