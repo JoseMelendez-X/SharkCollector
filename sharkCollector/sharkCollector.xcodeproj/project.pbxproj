@@ -78,8 +78,8 @@
 			isa = PBXGroup;
 			children = (
 				590BCC4A1F8D666500C2D453 /* Model */,
-				590BCC311F8C886C00C2D453 /* Controller */,
 				590BCC321F8C887600C2D453 /* Views */,
+				590BCC311F8C886C00C2D453 /* Controller */,
 				590BCC301F8C885D00C2D453 /* Resources */,
 			);
 			path = sharkCollector;
