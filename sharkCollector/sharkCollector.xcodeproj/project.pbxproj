@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		360D1EE926A7B0A455BB7344 /* Pods_sharkCollector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DBCC74E2538146283CE2A09 /* Pods_sharkCollector.framework */; };
 		590BCC1F1F8C885400C2D453 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC1E1F8C885400C2D453 /* AppDelegate.swift */; };
 		590BCC211F8C885400C2D453 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590BCC201F8C885400C2D453 /* ViewController.swift */; };
 		590BCC241F8C885400C2D453 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 590BCC221F8C885400C2D453 /* Main.storyboard */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16F0F7F4FD367FBD4D0F77AC /* Pods-sharkCollector.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharkCollector.debug.xcconfig"; path = "Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector.debug.xcconfig"; sourceTree = "<group>"; };
+		2DBCC74E2538146283CE2A09 /* Pods_sharkCollector.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sharkCollector.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		590BCC1B1F8C885400C2D453 /* sharkCollector.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sharkCollector.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		590BCC1E1F8C885400C2D453 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		590BCC201F8C885400C2D453 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +25,8 @@
 		590BCC251F8C885400C2D453 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		590BCC281F8C885400C2D453 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		590BCC2A1F8C885400C2D453 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		590BCC331F8C899D00C2D453 /* GoogleService-Info (2).plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info (2).plist"; path = "../../../../../../Downloads/GoogleService-Info (2).plist"; sourceTree = "<group>"; };
+		C02DC6A60FA912D9C28A7723 /* Pods-sharkCollector.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sharkCollector.release.xcconfig"; path = "Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				360D1EE926A7B0A455BB7344 /* Pods_sharkCollector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -40,6 +46,8 @@
 			children = (
 				590BCC1D1F8C885400C2D453 /* sharkCollector */,
 				590BCC1C1F8C885400C2D453 /* Products */,
+				ED1579FE3A8299F7B5D37A54 /* Pods */,
+				5F313D057B4E04C582D5D991 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +76,7 @@
 				590BCC251F8C885400C2D453 /* Assets.xcassets */,
 				590BCC271F8C885400C2D453 /* LaunchScreen.storyboard */,
 				590BCC2A1F8C885400C2D453 /* Info.plist */,
+				590BCC331F8C899D00C2D453 /* GoogleService-Info (2).plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -88,6 +97,23 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		5F313D057B4E04C582D5D991 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2DBCC74E2538146283CE2A09 /* Pods_sharkCollector.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ED1579FE3A8299F7B5D37A54 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				16F0F7F4FD367FBD4D0F77AC /* Pods-sharkCollector.debug.xcconfig */,
+				C02DC6A60FA912D9C28A7723 /* Pods-sharkCollector.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -95,9 +121,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 590BCC2D1F8C885400C2D453 /* Build configuration list for PBXNativeTarget "sharkCollector" */;
 			buildPhases = (
+				A6512C138985991A95D838B9 /* [CP] Check Pods Manifest.lock */,
 				590BCC171F8C885400C2D453 /* Sources */,
 				590BCC181F8C885400C2D453 /* Frameworks */,
 				590BCC191F8C885400C2D453 /* Resources */,
+				ED83FB75545064CAC2B3F011 /* [CP] Embed Pods Frameworks */,
+				C6C48E7A2B08DEA6C2702ACE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -154,6 +183,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A6512C138985991A95D838B9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C6C48E7A2B08DEA6C2702ACE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		ED83FB75545064CAC2B3F011 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-sharkCollector/Pods-sharkCollector-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		590BCC171F8C885400C2D453 /* Sources */ = {
@@ -296,11 +373,12 @@
 		};
 		590BCC2E1F8C885400C2D453 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 16F0F7F4FD367FBD4D0F77AC /* Pods-sharkCollector.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GL34LYNV2E;
-				INFOPLIST_FILE = sharkCollector/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/sharkCollector/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoseMelendez.sharkCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -311,11 +389,12 @@
 		};
 		590BCC2F1F8C885400C2D453 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C02DC6A60FA912D9C28A7723 /* Pods-sharkCollector.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = GL34LYNV2E;
-				INFOPLIST_FILE = sharkCollector/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/sharkCollector/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.JoseMelendez.sharkCollector;
 				PRODUCT_NAME = "$(TARGET_NAME)";

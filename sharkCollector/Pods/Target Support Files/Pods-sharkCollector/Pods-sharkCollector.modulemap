@@ -1,0 +1,6 @@
+framework module Pods_sharkCollector {
+  umbrella header "Pods-sharkCollector-umbrella.h"
+
+  export *
+  module * { export * }
+}
