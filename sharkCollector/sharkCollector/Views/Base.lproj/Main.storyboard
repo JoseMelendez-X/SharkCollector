@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="GmZ-dS-R70">
             <objects>
-                <viewController id="r2f-GS-lRI" sceneMemberID="viewController">
+                <viewController id="r2f-GS-lRI" customClass="SignInViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="I8y-q8-Atb">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-778" y="197"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="iWU-do-bKt">
             <objects>
-                <viewController id="Vvz-02-W3w" sceneMemberID="viewController">
+                <viewController id="Vvz-02-W3w" customClass="SignUpViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pah-Yw-GmB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,10 +39,10 @@
             </objects>
             <point key="canvasLocation" x="-68" y="197"/>
         </scene>
-        <!--View Controller-->
+        <!--Borrower View Controller-->
         <scene sceneID="YL3-R9-CAc">
             <objects>
-                <viewController id="BKl-c0-JuP" sceneMemberID="viewController">
+                <viewController id="BKl-c0-JuP" customClass="BorrowerViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9TS-gp-gkt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,12 +52,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFk-69-WHo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="626" y="197"/>
+            <point key="canvasLocation" x="1359" y="197"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Borrowers Table View Controller-->
         <scene sceneID="hj8-Xg-JVP">
             <objects>
-                <tableViewController id="H44-9o-Y7m" sceneMemberID="viewController">
+                <tableViewController id="H44-9o-Y7m" customClass="BorrowersTableViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="l4a-QR-bpq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -80,12 +80,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qz8-Ov-BkR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1306" y="197"/>
+            <point key="canvasLocation" x="647" y="197"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Borrower View Controller-->
         <scene sceneID="a38-kw-Gac">
             <objects>
-                <viewController id="lof-vX-tlr" sceneMemberID="viewController">
+                <viewController id="lof-vX-tlr" customClass="AddBorrowerViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bsm-O2-k6A">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,10 +97,10 @@
             </objects>
             <point key="canvasLocation" x="2036" y="197"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Payments Table View Controller-->
         <scene sceneID="4vy-fZ-AHz">
             <objects>
-                <tableViewController id="Hi3-Qf-D5r" sceneMemberID="viewController">
+                <tableViewController id="Hi3-Qf-D5r" customClass="PaymentsTableViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nC7-83-9zq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
