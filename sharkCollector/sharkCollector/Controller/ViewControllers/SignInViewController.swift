@@ -47,6 +47,9 @@ class SignInViewController: UIViewController {
                 //Send user to the BorrowersTVC
                 self.performSegue(withIdentifier: "toBorrowersTVC", sender: self)
                 
+                //Clear password text
+                self.passwordTextfield.text = ""
+                
             }
         }
     }
@@ -58,6 +61,7 @@ class SignInViewController: UIViewController {
         
         //Send user to signUpVC when this button is clicked
         performSegue(withIdentifier: "toSignUpVC", sender: self)
+        
         
     }
     
