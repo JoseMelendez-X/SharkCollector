@@ -21,7 +21,6 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
     }
     
     //MARK: - IB-Actions
@@ -73,5 +72,6 @@ class SignUpViewController: UIViewController {
         //Dismiss keyboard
         self.view.endEditing(true)
     }
+    
     
 }
