@@ -42,15 +42,15 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-8c-o3T">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eDN-8c-o3T">
                                 <rect key="frame" x="83" y="321" width="248" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22564181685447693" green="0.27749180793762207" blue="0.33575439453125" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zvv-D1-cnO">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Zvv-D1-cnO">
                                 <rect key="frame" x="83" y="389" width="248" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.22564181689999999" green="0.2774918079" blue="0.3357543945" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -63,12 +63,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInButtonTapped:" destination="r2f-GS-lRI" eventType="touchUpInside" id="tqf-cB-rXc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AUX-1k-xsA">
                                 <rect key="frame" x="162" y="540" width="90" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Sign Up"/>
+                                <connections>
+                                    <action selector="signUpButtonTapped:" destination="r2f-GS-lRI" eventType="touchUpInside" id="Sex-8L-b3D"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32694637775421143" green="0.39890965819358826" blue="0.46971261501312256" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -76,6 +82,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Fsa-TD-8Ll"/>
                     <connections>
+                        <outlet property="emailTextfield" destination="eDN-8c-o3T" id="bXu-lL-2n8"/>
+                        <outlet property="passwordTextfield" destination="Zvv-D1-cnO" id="zQP-Xd-XuJ"/>
                         <segue destination="Vvz-02-W3w" kind="show" identifier="toSignUpVC" id="ML0-qn-Zcd"/>
                         <segue destination="H44-9o-Y7m" kind="show" identifier="toBorrowersTVC" id="bsk-Vg-roZ"/>
                     </connections>
