@@ -19,7 +19,7 @@ class SignInViewController: UIViewController {
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
 
     //MARK: - IB-Actions
@@ -59,6 +59,16 @@ class SignInViewController: UIViewController {
         //Send user to signUpVC when this button is clicked
         performSegue(withIdentifier: "toSignUpVC", sender: self)
         
+    }
+    
+    
+    //MARK: - Functions
+    
+    //touchesBegan
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //Dismiss keyboard
+        self.view.endEditing(true)
     }
     
 }
