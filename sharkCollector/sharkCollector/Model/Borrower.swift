@@ -15,19 +15,13 @@ class Borrower {
     let name: String
     
     //Debt
-    let debt: Double
-
-    //Image of the borrower
-    let imageOfBorrower: UIImage?
+    let debt: String
     
     //Initializer
-    init(name: String, debt: Double, imageOfBorrower: UIImage?) {
+    init(name: String, debt: String) {
         
         self.name = name
         
         self.debt = debt
-        
-        self.imageOfBorrower = imageOfBorrower
-        
     }
 }

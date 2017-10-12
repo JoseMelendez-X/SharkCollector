@@ -9,10 +9,15 @@
 import UIKit
 import Firebase
 
-class BorrowersTableViewController: UITableViewController {
+class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
+    
+    //MARK: Variables and Constants
+    
+    //Array of borrowers
+    var borrowers = [Borrower]()
+
     
     //MARK: - viewDidLoad
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -32,17 +37,21 @@ class BorrowersTableViewController: UITableViewController {
     
     
     //MARK: - TableviewFunctions
+    
+    //numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return borrowers.count
     }
 
-    
+    //cellForRowAt
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "borrowers", for: indexPath) 
+        
+        //Add the name to the table view
+        cell.textLabel?.text = borrowers[indexPath.row].name
+ 
         return cell
     }
     
@@ -62,6 +71,35 @@ class BorrowersTableViewController: UITableViewController {
         navigationController?.popToRootViewController(animated: true)
     }
     
- 
+    //Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "toAddBorrowerVC" {
+            
+            let destinationVC = segue.destination as! AddBorrowerViewController
+            
+            //Set the delegate to self
+            destinationVC.delegate = self
+        }
+        
+    }
+    
+    //MARK: - Protocol Functions
+    func addBorrowerToTableView(name: String, debt: String) {
+        
+        //Create a borrower
+        let borrower = Borrower(name: name, debt: debt)
+        
+        //Add the created borrower to the array of borrowers
+        borrowers.append(borrower)
+        
+        //Reload Data
+        tableView.reloadData()
+    }
+    
+    
+    
+
+    
 
  }

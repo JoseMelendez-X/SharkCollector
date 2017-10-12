@@ -12,13 +12,13 @@ import UIKit
 protocol addBorrowerDelegate {
     
     //Add name to the BorrowersTableView
-    func addNameToTableView(name: String)
+    func addBorrowerToTableView(name: String, debt: String)
 }
 
 class AddBorrowerViewController: UIViewController {
 
     //MARK: - Variables and Constants
-    
+
     //Delegate variable
     var delegate: addBorrowerDelegate?
     
@@ -35,7 +35,15 @@ class AddBorrowerViewController: UIViewController {
     //MARK: - IB-Actions
     @IBAction func addBorrowerButtonTapped(_ sender: UIButton) {
         
+        //Unwrap optional
+        if let name = enterNameTextfield.text, let debt = enterAmountOfDebtTextfield.text {
         
+        //If delegate is not nil then execute the function
+            delegate?.addBorrowerToTableView(name: name, debt: debt)
+            
+            //Go back to BorrowersVC
+            navigationController?.popViewController(animated: true)
+        }
     }
     
 
