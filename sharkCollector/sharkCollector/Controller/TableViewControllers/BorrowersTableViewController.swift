@@ -54,6 +54,14 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
  
         return cell
     }
+
+    //didSelectRowAt
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //Send user to BorrowerVC, when cell is tapped
+        performSegue(withIdentifier: "toBorrowerVC", sender: self)
+        
+    }
     
     //MARK: - Functions
     @objc func logoutButtonTapped() {
