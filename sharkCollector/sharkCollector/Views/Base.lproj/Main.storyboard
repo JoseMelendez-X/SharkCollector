@@ -228,7 +228,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="wob-R5-0tI">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search" id="wob-R5-0tI">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -249,7 +249,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Borrowers" id="06G-YS-KiL">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vG0-bt-FVz"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vG0-bt-FVz">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="H44-9o-Y7m" id="arO-at-tdw"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <segue destination="BKl-c0-JuP" kind="show" identifier="toBorrowerVC" id="SkH-qm-uLn"/>

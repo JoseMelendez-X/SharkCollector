@@ -20,7 +20,16 @@ class BorrowersTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
       
     }
-
+    
+    //MARK: - IB-Actions
+    
+    @IBAction func addButtonTapped(_ sender: UIBarButtonItem) {
+        
+        //Segue to the AddBorrowerVC
+        performSegue(withIdentifier: "toAddBorrowerVC", sender: self)
+        
+    }
+    
     
     //MARK: - TableviewFunctions
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
