@@ -291,11 +291,18 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add"/>
+                                <connections>
+                                    <action selector="addBorrowerButtonTapped:" destination="lof-vX-tlr" eventType="touchUpInside" id="wip-ta-VBY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="yUI-f6-RSu"/>
                     </view>
+                    <connections>
+                        <outlet property="enterAmountOfDebtTextfield" destination="0nc-aH-sJD" id="i03-u5-dPi"/>
+                        <outlet property="enterNameTextfield" destination="k5X-3k-q7P" id="buS-GD-1bc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOA-QY-41O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

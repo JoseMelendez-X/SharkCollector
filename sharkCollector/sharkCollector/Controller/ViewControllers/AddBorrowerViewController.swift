@@ -8,28 +8,35 @@
 
 import UIKit
 
+//MARK: Protocols
+protocol addBorrowerDelegate {
+    
+    //Add name to the BorrowersTableView
+    func addNameToTableView(name: String)
+}
+
 class AddBorrowerViewController: UIViewController {
 
+    //MARK: - Variables and Constants
+    
+    //Delegate variable
+    var delegate: addBorrowerDelegate?
+    
+    //MARK: - IB-Outlets
+    @IBOutlet weak var enterNameTextfield: UITextField!
+    @IBOutlet weak var enterAmountOfDebtTextfield: UITextField!
+    
+    //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: - IB-Actions
+    @IBAction func addBorrowerButtonTapped(_ sender: UIButton) {
+        
+        
     }
-    */
+    
 
 }
