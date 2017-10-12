@@ -41,7 +41,7 @@ class BorrowersTableViewController: UITableViewController {
     @objc func logoutButtonTapped() {
         
         do {
-            //do this (singOut)
+            //do this (signOut)
             try Auth.auth().signOut()
             
         } catch {
@@ -52,6 +52,7 @@ class BorrowersTableViewController: UITableViewController {
         //Pop back to the signInVC
         navigationController?.popToRootViewController(animated: true)
     }
+    
  
 
  }
