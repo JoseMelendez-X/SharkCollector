@@ -213,6 +213,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Qjc-aK-x27"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="borrowerName" destination="43Z-mo-tBl" id="avF-rM-Lk0"/>
                         <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymenstTVC" id="e0l-9Q-cJf"/>
                     </connections>
                 </viewController>

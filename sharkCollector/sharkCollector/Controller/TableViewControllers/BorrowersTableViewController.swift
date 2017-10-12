@@ -10,13 +10,15 @@ import UIKit
 import Firebase
 
 class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
+
     
     //MARK: Variables and Constants
     
     //Array of borrowers
     var borrowers = [Borrower]()
-
     
+    var indexOfRowUserClicked: Int = 0
+
     //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,10 +60,14 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
     //didSelectRowAt
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        //Keep track of the row the user clicked
+        indexOfRowUserClicked = indexPath.row
+        
         //Send user to BorrowerVC, when cell is tapped
         performSegue(withIdentifier: "toBorrowerVC", sender: self)
         
     }
+
     
     //MARK: - Functions
     @objc func logoutButtonTapped() {
@@ -88,6 +94,13 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
             
             //Set the delegate to self
             destinationVC.delegate = self
+            
+        } else if segue.identifier == "toBorrowerVC" {
+            
+            let destinationVC = segue.destination as! BorrowerViewController
+            
+            //Give name a value
+            destinationVC.name = borrowers[indexOfRowUserClicked].name
         }
         
     }
@@ -105,9 +118,4 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
         tableView.reloadData()
     }
     
-    
-    
-
-    
-
  }
