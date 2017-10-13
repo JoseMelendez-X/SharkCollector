@@ -27,7 +27,7 @@ class AddBorrowerViewController: UIViewController {
     @IBAction func addBorrowerButtonTapped(_ sender: UIButton) {
       
             //Send information that the user entered to the database
-             sendInfoToDatabase()
+             sendBorrowersToDatabase()
             
             //Go back to BorrowersVC
             navigationController?.popViewController(animated: true)
@@ -36,7 +36,7 @@ class AddBorrowerViewController: UIViewController {
     
     //MARK: - Firebase functions
     
-    func sendInfoToDatabase() {
+    func sendBorrowersToDatabase() {
         
         //Creates a database named Borrowers
         let borrowers = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)

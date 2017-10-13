@@ -225,6 +225,7 @@
                     <connections>
                         <outlet property="borrowerImageView" destination="dvv-eF-7Ew" id="62X-5N-6lG"/>
                         <outlet property="borrowerNameLabel" destination="43Z-mo-tBl" id="ZZg-cU-eYS"/>
+                        <outlet property="datePicker" destination="uhK-Lj-TKo" id="hUV-cx-A6H"/>
                         <outlet property="debtLabel" destination="VHI-eV-WRU" id="zjw-Xf-4H0"/>
                         <outlet property="paymentTextfield" destination="iPZ-iz-al3" id="M6T-Tp-xhc"/>
                         <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymentsTVC" id="e0l-9Q-cJf"/>

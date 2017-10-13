@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Payments {
+class Payment {
     
     //Amount paid
     let amountPaid: Double
