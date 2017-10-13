@@ -17,16 +17,12 @@ class Borrower {
     //Debt
     let debt: String
     
-    //Email
-    let email: String
-    
     //Initializer
-    init(name: String, debt: String, email: String) {
+    init(name: String, debt: String) {
         
         self.name = name
         
         self.debt = debt
-        
-        self.email = email
+    
     }
 }

@@ -133,10 +133,9 @@ class BorrowersTableViewController: UITableViewController {
             
             let name = snapshotValue["name"]!
             let debt = snapshotValue["debt"]!
-            let email = snapshotValue["email"]!
             
             //Create a Borrower object
-            let borrower = Borrower(name: name, debt: debt, email: email)
+            let borrower = Borrower(name: name, debt: debt)
             
             //Append this newly created object to the borrowers array
             self.borrowers.append(borrower)
