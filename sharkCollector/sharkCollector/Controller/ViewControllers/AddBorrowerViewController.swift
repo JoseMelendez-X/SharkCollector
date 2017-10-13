@@ -7,21 +7,12 @@
 //
 
 import UIKit
-
-//MARK: Protocols
-protocol addBorrowerDelegate {
-    
-    //Add name to the BorrowersTableView
-    func addBorrowerToTableView(name: String, debt: String)
-}
+import Firebase
 
 class AddBorrowerViewController: UIViewController {
 
     //MARK: - Variables and Constants
 
-    //Delegate variable
-    var delegate: addBorrowerDelegate?
-    
     //MARK: - IB-Outlets
     @IBOutlet weak var enterNameTextfield: UITextField!
     @IBOutlet weak var enterAmountOfDebtTextfield: UITextField!
@@ -34,17 +25,40 @@ class AddBorrowerViewController: UIViewController {
     
     //MARK: - IB-Actions
     @IBAction func addBorrowerButtonTapped(_ sender: UIButton) {
-        
-        //Unwrap optional
-        if let name = enterNameTextfield.text, let debt = enterAmountOfDebtTextfield.text {
-        
-        //If delegate is not nil then execute the function
-            delegate?.addBorrowerToTableView(name: name, debt: debt)
+      
+            //Send information that the user entered to the database
+             sendInfoToDatabase()
             
             //Go back to BorrowersVC
             navigationController?.popViewController(animated: true)
-        }
+
     }
     
+    //MARK: - Firebase functions
+    
+    func sendInfoToDatabase() {
+        
+        //Creates a database named Borrowers
+        let borrowers = Database.database().reference().child("Borrowers")
+        
+        //Properties and values of our database
+        let borrowersDictionary = ["name": enterNameTextfield.text!, "debt": enterAmountOfDebtTextfield.text!, "email": Auth.auth().currentUser?.email]
+        
+        //Creates unique identifier for each entry to the database and sets the values
+        borrowers.childByAutoId().setValue(borrowersDictionary) {
+            (error, ref) in
+                
+                if error != nil {
+                    
+                    //Handle errors here
+                    print(error!)
+                    
+                } else {
+                    
+                    //Handle success here
+                    print("messsaged saved successfully")
+            }
+        }
+    }
 
 }

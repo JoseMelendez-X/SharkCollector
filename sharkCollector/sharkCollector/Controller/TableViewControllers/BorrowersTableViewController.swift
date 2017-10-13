@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
+class BorrowersTableViewController: UITableViewController {
 
     
     //MARK: Variables and Constants
@@ -26,6 +26,8 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
         //Create logout bar button item
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
       
+        //When the view loads retrieve borrowers
+        retrieveInfoFromDatabase()
     }
     
     //MARK: - IB-Actions
@@ -88,14 +90,7 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
     //Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if segue.identifier == "toAddBorrowerVC" {
-            
-            let destinationVC = segue.destination as! AddBorrowerViewController
-            
-            //Set the delegate to self
-            destinationVC.delegate = self
-            
-        } else if segue.identifier == "toBorrowerVC" {
+        if segue.identifier == "toBorrowerVC" {
             
             let destinationVC = segue.destination as! BorrowerViewController
             
@@ -106,16 +101,47 @@ class BorrowersTableViewController: UITableViewController, addBorrowerDelegate {
     }
     
     //MARK: - Protocol Functions
-    func addBorrowerToTableView(name: String, debt: String) {
+    
+    //NOT NEEDED, FIREBASE RETRIEVE FUNCTION PERFORMES THE SAME TASK
+//    func addBorrowerToTableView(name: String, debt: String, email: String) {
+//
+//        //Create a borrower
+//        let borrower = Borrower(name: name, debt: debt, email: email)
+//
+//        //Add the created borrower to the array of borrowers
+//        borrowers.append(borrower)
+//
+//        //Reload Data
+//        tableView.reloadData()
+//    }
+    
+    //MARK: - Firebase functions
+    
+    func retrieveInfoFromDatabase() {
         
-        //Create a borrower
-        let borrower = Borrower(name: name, debt: debt)
+        //Reference the database created in AddBorrowerVC
+        let borrowersDB = Database.database().reference().child("Borrowers")
         
-        //Add the created borrower to the array of borrowers
-        borrowers.append(borrower)
+        //When new Borrower is added, we will grab that new borrower that was added
+        borrowersDB.observe(.childAdded) { (snapshot) in
         
-        //Reload Data
-        tableView.reloadData()
+            //Grab the snapshot value wich in our case is [String: String]
+            //The value of the snapshot is of type Any so it needs to be casted as [String: String]
+          let snapshotValue = snapshot.value as! Dictionary<String, String>
+            
+            let name = snapshotValue["name"]!
+            let debt = snapshotValue["debt"]!
+            let email = snapshotValue["email"]!
+            
+            //Create a Borrower object
+            let borrower = Borrower(name: name, debt: debt, email: email)
+            
+            //Append this newly created object to the borrowers array
+            self.borrowers.append(borrower)
+            
+            //Reload data
+            self.tableView.reloadData()
+        }
     }
     
  }
