@@ -209,7 +209,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -227,7 +227,7 @@
                         <outlet property="borrowerNameLabel" destination="43Z-mo-tBl" id="ZZg-cU-eYS"/>
                         <outlet property="debtLabel" destination="VHI-eV-WRU" id="zjw-Xf-4H0"/>
                         <outlet property="paymentTextfield" destination="iPZ-iz-al3" id="M6T-Tp-xhc"/>
-                        <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymenstTVC" id="e0l-9Q-cJf"/>
+                        <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymentsTVC" id="e0l-9Q-cJf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uFk-69-WHo" userLabel="First Responder" sceneMemberID="firstResponder"/>

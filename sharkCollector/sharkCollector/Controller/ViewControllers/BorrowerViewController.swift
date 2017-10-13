@@ -12,6 +12,7 @@ class BorrowerViewController: UIViewController {
     
     //MARK: - Variables and Constants
     var name: String?
+    var debt: String?
 
     //MARK: - IB-Outlets
     @IBOutlet weak var borrowerNameLabel: UILabel!
@@ -27,6 +28,7 @@ class BorrowerViewController: UIViewController {
         
          //Set borrowerName text equal to name
         borrowerNameLabel.text = name
+        debtLabel.text = "Debt: $\(debt!)"
         
     }
     
@@ -41,6 +43,9 @@ class BorrowerViewController: UIViewController {
     }
     
     @IBAction func paymentsFolderTapped(_ sender: UIBarButtonItem) {
+        
+        //Send user to the PaymentsTVC
+        performSegue(withIdentifier: "toPaymentsTVC", sender: self)
     }
     
 }

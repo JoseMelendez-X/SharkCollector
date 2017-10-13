@@ -98,6 +98,9 @@ class BorrowersTableViewController: UITableViewController {
             
             //Give name a value
             destinationVC.name = borrowers[indexOfRowUserClicked].name
+            //Give debt a value
+            destinationVC.debt = borrowers[indexOfRowUserClicked].debt
+            
         }
         
     }
