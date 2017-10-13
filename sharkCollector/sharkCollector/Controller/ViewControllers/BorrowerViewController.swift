@@ -14,7 +14,11 @@ class BorrowerViewController: UIViewController {
     var name: String?
 
     //MARK: - IB-Outlets
-    @IBOutlet weak var borrowerName: UILabel!
+    @IBOutlet weak var borrowerNameLabel: UILabel!
+    @IBOutlet weak var debtLabel: UILabel!
+    @IBOutlet weak var paymentTextfield: UITextField!
+    @IBOutlet weak var borrowerImageView: UIImageView!
+ 
     
 
     //MARK: - viewDidLoad
@@ -22,12 +26,21 @@ class BorrowerViewController: UIViewController {
         super.viewDidLoad()
         
          //Set borrowerName text equal to name
-        borrowerName.text = name
+        borrowerNameLabel.text = name
         
     }
     
     
-
-
-
+    @IBAction func pickedDateOfPayment(_ sender: UIDatePicker) {
+        
+        
+    }
+    
+    @IBAction func addPaymentButtonTapped(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func paymentsFolderTapped(_ sender: UIBarButtonItem) {
+    }
+    
 }

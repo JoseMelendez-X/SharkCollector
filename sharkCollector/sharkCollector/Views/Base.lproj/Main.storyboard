@@ -191,12 +191,18 @@
                                 <date key="date" timeIntervalSinceReferenceDate="529347514.31515002">
                                     <!--2017-10-10 16:58:34 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="pickedDateOfPayment:" destination="BKl-c0-JuP" eventType="valueChanged" id="vM5-1z-gDV"/>
+                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EN7-Cm-gI0">
                                 <rect key="frame" x="162" y="673" width="91" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Add Payment"/>
+                                <connections>
+                                    <action selector="addPaymentButtonTapped:" destination="BKl-c0-JuP" eventType="touchUpInside" id="2kM-VM-5Ns"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Amount" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iPZ-iz-al3">
                                 <rect key="frame" x="137" y="353" width="141" height="30"/>
@@ -210,10 +216,17 @@
                         <viewLayoutGuide key="safeArea" id="vud-Nr-6ee"/>
                     </view>
                     <navigationItem key="navigationItem" title="SharkCollector" id="WvO-3Q-ojg">
-                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Qjc-aK-x27"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Qjc-aK-x27">
+                            <connections>
+                                <action selector="paymentsFolderTapped:" destination="BKl-c0-JuP" id="CT3-Ed-Mvc"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="borrowerName" destination="43Z-mo-tBl" id="avF-rM-Lk0"/>
+                        <outlet property="borrowerImageView" destination="dvv-eF-7Ew" id="62X-5N-6lG"/>
+                        <outlet property="borrowerNameLabel" destination="43Z-mo-tBl" id="ZZg-cU-eYS"/>
+                        <outlet property="debtLabel" destination="VHI-eV-WRU" id="zjw-Xf-4H0"/>
+                        <outlet property="paymentTextfield" destination="iPZ-iz-al3" id="M6T-Tp-xhc"/>
                         <segue destination="Hi3-Qf-D5r" kind="show" identifier="toPaymenstTVC" id="e0l-9Q-cJf"/>
                     </connections>
                 </viewController>

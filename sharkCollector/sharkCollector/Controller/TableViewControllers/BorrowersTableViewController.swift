@@ -105,6 +105,7 @@ class BorrowersTableViewController: UITableViewController {
     //MARK: - Protocol Functions
     
     //NOT NEEDED, FIREBASE RETRIEVE FUNCTION PERFORMES THE SAME TASK
+    
 //    func addBorrowerToTableView(name: String, debt: String, email: String) {
 //
 //        //Create a borrower
