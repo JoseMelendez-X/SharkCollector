@@ -27,7 +27,9 @@ class BorrowersTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
       
         //When the view loads retrieve borrowers
+      
         retrieveInfoFromDatabase()
+        
     }
     
     //MARK: - IB-Actions
@@ -120,14 +122,14 @@ class BorrowersTableViewController: UITableViewController {
     func retrieveInfoFromDatabase() {
         
         //Reference the database created in AddBorrowerVC
-        let borrowersDB = Database.database().reference().child("Borrowers")
+        let borrowersDB = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
         
         //When new Borrower is added, we will grab that new borrower that was added
         borrowersDB.observe(.childAdded) { (snapshot) in
         
             //Grab the snapshot value wich in our case is [String: String]
             //The value of the snapshot is of type Any so it needs to be casted as [String: String]
-          let snapshotValue = snapshot.value as! Dictionary<String, String>
+            let snapshotValue = snapshot.value as! Dictionary<String, String>
             
             let name = snapshotValue["name"]!
             let debt = snapshotValue["debt"]!

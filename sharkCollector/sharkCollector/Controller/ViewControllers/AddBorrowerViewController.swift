@@ -39,7 +39,7 @@ class AddBorrowerViewController: UIViewController {
     func sendInfoToDatabase() {
         
         //Creates a database named Borrowers
-        let borrowers = Database.database().reference().child("Borrowers")
+        let borrowers = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
         
         //Properties and values of our database
         let borrowersDictionary = ["name": enterNameTextfield.text!, "debt": enterAmountOfDebtTextfield.text!, "email": Auth.auth().currentUser?.email]
@@ -57,6 +57,7 @@ class AddBorrowerViewController: UIViewController {
                     
                     //Handle success here
                     print("messsaged saved successfully")
+                    
             }
         }
     }
