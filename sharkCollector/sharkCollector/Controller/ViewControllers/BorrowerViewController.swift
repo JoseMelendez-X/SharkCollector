@@ -97,9 +97,12 @@ class BorrowerViewController: UIViewController{
             if error != nil {
                 //Handle errors here
                 print(error!.localizedDescription)
+                
             } else {
                 
                 //Handle success here
+                let payment = Payment(amountPaid: Double(debt)!, dateOfPayment: date)
+                
                 print("Saved successfully")
             }
         }

@@ -17,6 +17,12 @@ class Borrower {
     //Debt
     let debt: String
     
+    //Payments
+    var payments = [Payment]()
+    
+    //Payment count
+    var numberOfPayments = 0
+    
     //Initializer
     init(name: String, debt: String) {
         
