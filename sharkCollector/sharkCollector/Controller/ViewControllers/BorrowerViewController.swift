@@ -8,12 +8,26 @@
 
 import UIKit
 import Firebase
+
+//MARK: Protocols
+protocol borrowerDelegate {
+    
+    //Definition
+    func addPayment(borrower: Borrower)
+}
+
 class BorrowerViewController: UIViewController{
+    
+    //Singleton
+    static let sharedInstance = BorrowerViewController()
     
     //MARK: - Variables and Constants
     var name: String?
     var debt: String?
     var dateDisplayed: String?
+    
+    //Declare the delegate variable here:
+    var delegate: borrowerDelegate?
     
 
     //MARK: - IB-Outlets
@@ -54,7 +68,8 @@ class BorrowerViewController: UIViewController{
         }
         
         //Send payments to the payments database
-        sendPaymentsToDatabase()
+        self.sendPaymentsToDatabase()
+        
 
         //Send user to PaymentsTVC
         performSegue(withIdentifier: "toPaymentsTVC", sender: self)
@@ -83,7 +98,6 @@ class BorrowerViewController: UIViewController{
         //Create a database called payments
         let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!)
         
-        
         //Unwrap Optionals
         if let debt = debt, let date = dateDisplayed {
             
@@ -91,6 +105,7 @@ class BorrowerViewController: UIViewController{
         let paymentDictionary = ["Amount paid" : debt, "Date": date] as [String : String]
         
         //Creates unique identifier for each entry to the database and sets the values
+            DispatchQueue.main.sync {
         paymentDB.childByAutoId().setValue(paymentDictionary) {
             (error, ref) in
             
@@ -101,11 +116,11 @@ class BorrowerViewController: UIViewController{
             } else {
                 
                 //Handle success here
-                let payment = Payment(amountPaid: Double(debt)!, dateOfPayment: date)
-                
+                BorrowersTableViewController.sharedInstance.borrower?.payments.append(Payment(amountPaid: debt, dateOfPayment: date))
                 print("Saved successfully")
             }
         }
     }
+  }
 }
 }

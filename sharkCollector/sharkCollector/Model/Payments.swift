@@ -11,16 +11,18 @@ import Foundation
 class Payment {
     
     //Amount paid
-    let amountPaid: Double
+    var amountPaid: String
     
     //Date of payment
     let dateOfPayment: String
     
     //Initializer
-    init(amountPaid: Double, dateOfPayment: String) {
+    init(amountPaid: String, dateOfPayment: String) {
         
         self.amountPaid = amountPaid
         
         self.dateOfPayment = dateOfPayment
+        
     }
+    
 }

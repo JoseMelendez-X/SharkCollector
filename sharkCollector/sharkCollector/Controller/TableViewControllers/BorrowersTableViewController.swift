@@ -11,13 +11,16 @@ import Firebase
 
 class BorrowersTableViewController: UITableViewController {
 
-    
+    static let sharedInstance = BorrowersTableViewController()
     //MARK: Variables and Constants
+    
+    var borrower: Borrower?
     
     //Array of borrowers
     var borrowers = [Borrower]()
     
     var indexOfRowUserClicked: Int = 0
+    
 
     //MARK: - viewDidLoad
     override func viewDidLoad() {
@@ -28,7 +31,7 @@ class BorrowersTableViewController: UITableViewController {
       
         //When the view loads retrieve borrowers
       
-        retrieveInfoFromDatabase()
+        retrieveBorrowersFromDatabase()
         
     }
     
@@ -105,25 +108,11 @@ class BorrowersTableViewController: UITableViewController {
         
     }
     
-    //MARK: - Protocol Functions
     
-    //NOT NEEDED, FIREBASE RETRIEVE FUNCTION PERFORMES THE SAME TASK
-    
-//    func addBorrowerToTableView(name: String, debt: String, email: String) {
-//
-//        //Create a borrower
-//        let borrower = Borrower(name: name, debt: debt, email: email)
-//
-//        //Add the created borrower to the array of borrowers
-//        borrowers.append(borrower)
-//
-//        //Reload Data
-//        tableView.reloadData()
-//    }
     
     //MARK: - Firebase functions
     
-    func retrieveInfoFromDatabase() {
+    func retrieveBorrowersFromDatabase() {
         
         //Reference the database created in AddBorrowerVC
         let borrowersDB = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
@@ -132,20 +121,24 @@ class BorrowersTableViewController: UITableViewController {
         borrowersDB.observe(.childAdded) { (snapshot) in
         
             //Grab the snapshot value wich in our case is [String: String]
-            //The value of the snapshot is of type Any so it needs to be casted as [String: String]
+            //The value of the snapshot needs to be casted as [String: String]
             let snapshotValue = snapshot.value as! Dictionary<String, String>
             
             let name = snapshotValue["name"]!
             let debt = snapshotValue["debt"]!
             
             //Create a Borrower object
-            let borrower = Borrower(name: name, debt: debt)
+            self.borrower = Borrower(name: name, debt: debt)
+            
+            //Set the tracker of borrower
+            self.borrower?.tracker = self.indexOfRowUserClicked
             
             //Append this newly created object to the borrowers array
-            self.borrowers.append(borrower)
+            self.borrowers.append(self.borrower!)
             
             //Reload data
             self.tableView.reloadData()
+            
         }
     }
     

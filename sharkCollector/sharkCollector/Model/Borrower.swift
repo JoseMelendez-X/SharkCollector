@@ -12,16 +12,16 @@ import UIKit
 class Borrower {
     
     //Name
-    let name: String
+    var name: String
     
     //Debt
-    let debt: String
+    var debt: String
     
     //Payments
     var payments = [Payment]()
     
-    //Payment count
-    var numberOfPayments = 0
+    //Tracker
+    var tracker = 0
     
     //Initializer
     init(name: String, debt: String) {
