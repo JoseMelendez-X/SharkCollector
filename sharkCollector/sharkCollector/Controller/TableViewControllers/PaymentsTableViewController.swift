@@ -12,6 +12,8 @@ import Firebase
 class PaymentsTableViewController: UITableViewController {
     
     //MARK: Variables and Constants
+    var borrowerAtIndex: Borrower?
+    
     var payments = [Payment]()
 
     override func viewDidLoad() {
@@ -27,14 +29,8 @@ class PaymentsTableViewController: UITableViewController {
     //numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let payments = BorrowersTableViewController.sharedInstance.borrower?.payments {
-            
-            return payments.count
-            
-        } else {
-            
-            return 0
-        }
+        return payments.count
+       
     }
     
     //cellForAt
@@ -43,11 +39,10 @@ class PaymentsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "payments", for: indexPath) as! PaymentsTableViewCell
         
         //amount paid
-         cell.amountPaidLabel.text = BorrowersTableViewController.sharedInstance.borrower?.payments[indexPath.row].amountPaid
+        cell.amountPaidLabel.text = payments[indexPath.row].amountPaid
     
         //date of payment
-        cell.dateOfPaymentLabel.text = BorrowersTableViewController.sharedInstance.borrower?.payments[indexPath.row].dateOfPayment
-        
+        cell.dateOfPaymentLabel.text = payments[indexPath.row].dateOfPayment
         return cell
         
         
@@ -58,7 +53,7 @@ class PaymentsTableViewController: UITableViewController {
     func retrievePayments() {
             
         //Reference the database created in BorrowerVC
-        let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!)
+        let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!).child((borrowerAtIndex?.name)!)
         
         //When a new payment is added, we will grab it.
         paymentDB.observe(.childAdded) { (snapshot) in
@@ -70,16 +65,16 @@ class PaymentsTableViewController: UITableViewController {
             let paymentValue = snapshotValue["Amount paid"]!
             let date = snapshotValue["Date"]!
             
-            //Create a new Payment object
+            //Create a payment object
             let payment = Payment(amountPaid: paymentValue, dateOfPayment: date)
             
-            //Append the payment to the payments array to a specific borrower
-            BorrowersTableViewController.sharedInstance.borrower?.payments.append(payment)
+            //Append it to the payments array
+            self.payments.append(payment)
             
             //Reload data
             self.tableView.reloadData()
+            
             }
         }
-
 
 }

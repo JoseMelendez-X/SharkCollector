@@ -218,7 +218,7 @@
                     <navigationItem key="navigationItem" title="SharkCollector" id="WvO-3Q-ojg">
                         <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Qjc-aK-x27">
                             <connections>
-                                <action selector="paymentsFolderTapped:" destination="BKl-c0-JuP" id="CT3-Ed-Mvc"/>
+                                <action selector="paymentsFolderButtonTapped:" destination="BKl-c0-JuP" id="lhD-aU-Fhr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -253,7 +253,7 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl8-Yo-gKZ" id="fPh-iZ-yK6">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -326,7 +326,7 @@
         <!--Payments Table View Controller-->
         <scene sceneID="4vy-fZ-AHz">
             <objects>
-                <tableViewController id="Hi3-Qf-D5r" customClass="PaymentsTableViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="payments" id="Hi3-Qf-D5r" customClass="PaymentsTableViewController" customModule="sharkCollector" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nC7-83-9zq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,7 +336,7 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hyh-2h-DZn" id="I6c-Pl-735">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73.666666666666671"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvn-SV-Zrq">

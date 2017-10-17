@@ -9,13 +9,6 @@
 import UIKit
 import Firebase
 
-//MARK: Protocols
-protocol borrowerDelegate {
-    
-    //Definition
-    func addPayment(borrower: Borrower)
-}
-
 class BorrowerViewController: UIViewController{
     
     //Singleton
@@ -23,11 +16,12 @@ class BorrowerViewController: UIViewController{
     
     //MARK: - Variables and Constants
     var name: String?
-    var debt: String?
+    var paid: String?
     var dateDisplayed: String?
+    var borrowerAtIndex: Borrower!
     
     //Declare the delegate variable here:
-    var delegate: borrowerDelegate?
+   
     
 
     //MARK: - IB-Outlets
@@ -44,14 +38,20 @@ class BorrowerViewController: UIViewController{
         super.viewDidLoad()
         
          //Set borrowerName text equal to name
-        borrowerNameLabel.text = name
-        debtLabel.text = "Debt: $\(debt!)"
+        borrowerNameLabel.text = borrowerAtIndex.name
+        debtLabel.text = "Debt: $\(borrowerAtIndex.debt)"
         
         //Change the configuration of the date picker
         datePicker.datePickerMode = .date
         
+        print(borrowerAtIndex.name)
+        
     }
     
+    @IBAction func paymentsFolderButtonTapped(_ sender: UIBarButtonItem) {
+        
+        performSegue(withIdentifier: "toPaymentsTVC", sender: self)
+    }
     
     @IBAction func pickedDateOfPayment(_ sender: UIDatePicker) {
         
@@ -76,13 +76,17 @@ class BorrowerViewController: UIViewController{
         
     }
     
-    
-    @IBAction func paymentsFolderTapped(_ sender: UIBarButtonItem) {
+    //Prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        //Send user to the PaymentsTVC
-        performSegue(withIdentifier: "toPaymentsTVC", sender: self)
+        if segue.identifier == "toPaymentsTVC" {
+
+            let destinationVC = segue.destination as! PaymentsTableViewController
+            
+            destinationVC.borrowerAtIndex = borrowerAtIndex
+            
+       }
         
-       
     }
     
     //Touches began
@@ -96,16 +100,15 @@ class BorrowerViewController: UIViewController{
     func sendPaymentsToDatabase() {
         
         //Create a database called payments
-        let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!)
+        let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!).child(borrowerAtIndex.name)
         
         //Unwrap Optionals
-        if let debt = debt, let date = dateDisplayed {
+        if let paid = paymentTextfield.text, let date = dateDisplayed {
             
         //Properties and values of our database
-        let paymentDictionary = ["Amount paid" : debt, "Date": date] as [String : String]
+        let paymentDictionary = ["Amount paid" : paid, "Date": date] as [String : String]
         
         //Creates unique identifier for each entry to the database and sets the values
-            DispatchQueue.main.sync {
         paymentDB.childByAutoId().setValue(paymentDictionary) {
             (error, ref) in
             
@@ -116,11 +119,9 @@ class BorrowerViewController: UIViewController{
             } else {
                 
                 //Handle success here
-                BorrowersTableViewController.sharedInstance.borrower?.payments.append(Payment(amountPaid: debt, dateOfPayment: date))
                 print("Saved successfully")
             }
         }
     }
   }
-}
 }

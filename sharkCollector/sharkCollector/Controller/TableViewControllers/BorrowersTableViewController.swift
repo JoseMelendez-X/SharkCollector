@@ -11,15 +11,13 @@ import Firebase
 
 class BorrowersTableViewController: UITableViewController {
 
-    static let sharedInstance = BorrowersTableViewController()
+
     //MARK: Variables and Constants
-    
-    var borrower: Borrower?
     
     //Array of borrowers
     var borrowers = [Borrower]()
     
-    var indexOfRowUserClicked: Int = 0
+    var indexOfRowUserClicked: Int?
     
 
     //MARK: - viewDidLoad
@@ -30,7 +28,6 @@ class BorrowersTableViewController: UITableViewController {
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
       
         //When the view loads retrieve borrowers
-      
         retrieveBorrowersFromDatabase()
         
     }
@@ -99,11 +96,9 @@ class BorrowersTableViewController: UITableViewController {
             
             let destinationVC = segue.destination as! BorrowerViewController
             
-            //Give name a value
-            destinationVC.name = borrowers[indexOfRowUserClicked].name
-            //Give debt a value
-            destinationVC.debt = borrowers[indexOfRowUserClicked].debt
-            
+            //Pass the borrower to the BorrowerVC
+            destinationVC.borrowerAtIndex = borrowers[indexOfRowUserClicked!]
+
         }
         
     }
@@ -128,17 +123,13 @@ class BorrowersTableViewController: UITableViewController {
             let debt = snapshotValue["debt"]!
             
             //Create a Borrower object
-            self.borrower = Borrower(name: name, debt: debt)
-            
-            //Set the tracker of borrower
-            self.borrower?.tracker = self.indexOfRowUserClicked
+            let borrower = Borrower(name: name, debt: debt)
             
             //Append this newly created object to the borrowers array
-            self.borrowers.append(self.borrower!)
-            
+            self.borrowers.append(borrower)
+            print(self.borrowers.count)
             //Reload data
             self.tableView.reloadData()
-            
         }
     }
     

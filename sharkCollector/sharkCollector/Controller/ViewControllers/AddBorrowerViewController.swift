@@ -42,7 +42,7 @@ class AddBorrowerViewController: UIViewController {
         let borrowers = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
         
         //Properties and values of our database
-        let borrowersDictionary = ["name": enterNameTextfield.text!, "debt": enterAmountOfDebtTextfield.text!, "email": Auth.auth().currentUser?.email]
+        let borrowersDictionary = ["name": enterNameTextfield.text!, "debt": enterAmountOfDebtTextfield.text!]
         
         //Creates unique identifier for each entry to the database and sets the values
         borrowers.childByAutoId().setValue(borrowersDictionary) {
