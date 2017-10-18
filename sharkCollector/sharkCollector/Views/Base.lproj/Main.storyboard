@@ -253,7 +253,7 @@
                                 <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bl8-Yo-gKZ" id="fPh-iZ-yK6">
-                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -271,6 +271,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="wob-R5-0tI" id="yia-HI-kIC"/>
                         <segue destination="BKl-c0-JuP" kind="show" identifier="toBorrowerVC" id="SkH-qm-uLn"/>
                         <segue destination="lof-vX-tlr" kind="show" identifier="toAddBorrowerVC" id="NWb-1L-CA3"/>
                     </connections>
@@ -336,19 +337,17 @@
                                 <rect key="frame" x="0.0" y="28" width="414" height="74"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hyh-2h-DZn" id="I6c-Pl-735">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="73.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvn-SV-Zrq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount Paid:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvn-SV-Zrq">
                                             <rect key="frame" x="8" y="8" width="102" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="$50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-PV-Nyt">
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVr-PV-Nyt">
                                             <rect key="frame" x="38" y="37" width="32" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -361,6 +360,14 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vvn-SV-Zrq" firstAttribute="top" secondItem="I6c-Pl-735" secondAttribute="top" constant="8" id="IFc-b8-hKa"/>
+                                        <constraint firstItem="fVr-PV-Nyt" firstAttribute="leading" secondItem="I6c-Pl-735" secondAttribute="leading" constant="38" id="JJQ-G8-cVW"/>
+                                        <constraint firstItem="fVr-PV-Nyt" firstAttribute="top" secondItem="vvn-SV-Zrq" secondAttribute="bottom" constant="8" id="Nop-21-nBH"/>
+                                        <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vvn-SV-Zrq" secondAttribute="trailing" constant="20" symbolic="YES" id="V0Q-mn-xKV"/>
+                                        <constraint firstItem="vvn-SV-Zrq" firstAttribute="leading" secondItem="I6c-Pl-735" secondAttribute="leading" constant="8" id="hpl-22-Vwf"/>
+                                        <constraint firstAttribute="bottom" secondItem="fVr-PV-Nyt" secondAttribute="bottom" constant="15.666666666666671" id="r63-qL-Lcc"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="amountPaidLabel" destination="fVr-PV-Nyt" id="gvw-eg-CjQ"/>

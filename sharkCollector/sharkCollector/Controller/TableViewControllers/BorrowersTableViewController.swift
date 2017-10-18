@@ -9,15 +9,20 @@
 import UIKit
 import Firebase
 
-class BorrowersTableViewController: UITableViewController {
-
+class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
+    
 
     //MARK: Variables and Constants
     
     //Array of borrowers
     var borrowers = [Borrower]()
-    
+    var filteredBorrowers = [Borrower]()
+    var shouldShowSearchResults = false
     var indexOfRowUserClicked: Int?
+    
+    //IB-Outlets
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     
 
     //MARK: - viewDidLoad
@@ -26,7 +31,10 @@ class BorrowersTableViewController: UITableViewController {
         
         //Create logout bar button item
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutButtonTapped))
-      
+        
+        //Search bar delegate
+        searchBar.delegate = self
+    
         //When the view loads retrieve borrowers
         retrieveBorrowersFromDatabase()
         
@@ -47,18 +55,31 @@ class BorrowersTableViewController: UITableViewController {
     //numberOfRowsInSection
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
+        if shouldShowSearchResults {
+            
+           return filteredBorrowers.count
+        }
+        
         return borrowers.count
     }
 
     //cellForRowAt
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "borrowers", for: indexPath) 
+        let cell = tableView.dequeueReusableCell(withIdentifier: "borrowers", for: indexPath)
+        
+        if shouldShowSearchResults {
+            
+            cell.textLabel?.text = filteredBorrowers[indexPath.row].name
+            
+            return cell
+        } else {
         
         //Add the name to the table view
         cell.textLabel?.text = borrowers[indexPath.row].name
- 
+        
         return cell
+        }
     }
 
     //didSelectRowAt
@@ -129,6 +150,32 @@ class BorrowersTableViewController: UITableViewController {
             self.borrowers.append(borrower)
             print(self.borrowers.count)
             //Reload data
+            self.tableView.reloadData()
+        }
+    }
+    
+    //MARK: Search bar function
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        shouldShowSearchResults = true
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        filteredBorrowers = borrowers.filter({ (borrower: Borrower) -> Bool in
+            
+            return borrower.name.lowercased().range(of: searchText.lowercased()) != nil
+            
+        })
+    
+        if searchText != "" {
+            shouldShowSearchResults = true
+            self.tableView.reloadData()
+        } else {
+            shouldShowSearchResults = false
             self.tableView.reloadData()
         }
     }

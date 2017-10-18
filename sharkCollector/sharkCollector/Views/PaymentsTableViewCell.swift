@@ -13,4 +13,6 @@ class PaymentsTableViewCell: UITableViewCell {
     @IBOutlet weak var amountPaidLabel: UILabel!
     
     @IBOutlet weak var dateOfPaymentLabel: UILabel!
+    
+    
 }
