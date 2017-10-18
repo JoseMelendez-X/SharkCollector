@@ -15,6 +15,8 @@ class PaymentsTableViewController: UITableViewController {
     var borrowerAtIndex: Borrower?
     
     var payments = [Payment]()
+    
+    var customDate = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()

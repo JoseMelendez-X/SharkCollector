@@ -19,6 +19,8 @@ class BorrowerViewController: UIViewController{
     var paid: String?
     var dateDisplayed: String?
     var borrowerAtIndex: Borrower!
+    var selectedDate = ""
+    let dateFormatter = DateFormatter()
     
     //Declare the delegate variable here:
    
@@ -42,10 +44,10 @@ class BorrowerViewController: UIViewController{
         
         //Change the configuration of the date picker
         datePicker.datePickerMode = .date
-        
-        print(borrowerAtIndex.name)
-        
+        dateFormatter.dateFormat = "MMM dd, yyy"
+    
     }
+ 
     
     @IBAction func paymentsFolderButtonTapped(_ sender: UIBarButtonItem) {
         
@@ -84,6 +86,7 @@ class BorrowerViewController: UIViewController{
             
             destinationVC.borrowerAtIndex = borrowerAtIndex
             
+            destinationVC.customDate = selectedDate
        }
         
     }
@@ -102,10 +105,12 @@ class BorrowerViewController: UIViewController{
         let paymentDB = Database.database().reference().child("Payments").child((Auth.auth().currentUser?.uid)!).child(borrowerAtIndex.name)
         
         //Unwrap Optionals
-        if let paid = paymentTextfield.text, let date = dateDisplayed {
-            
+        if let paid = paymentTextfield.text {
+        //Configure the selected date
+        selectedDate = dateFormatter.string(from: datePicker.date)
+        print(selectedDate)
         //Properties and values of our database
-        let paymentDictionary = ["Amount paid" : paid, "Date": date] as [String : String]
+        let paymentDictionary = ["Amount paid" : paid, "Date": selectedDate] as [String : String]
         
         //Creates unique identifier for each entry to the database and sets the values
         paymentDB.childByAutoId().setValue(paymentDictionary) {

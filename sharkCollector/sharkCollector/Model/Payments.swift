@@ -14,7 +14,7 @@ class Payment {
     var amountPaid: String
     
     //Date of payment
-    let dateOfPayment: String
+    var dateOfPayment: String
     
     //Initializer
     init(amountPaid: String, dateOfPayment: String) {
