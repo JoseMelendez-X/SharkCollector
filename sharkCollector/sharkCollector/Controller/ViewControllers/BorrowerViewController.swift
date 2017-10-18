@@ -28,7 +28,6 @@ class BorrowerViewController: UIViewController{
     @IBOutlet weak var borrowerNameLabel: UILabel!
     @IBOutlet weak var debtLabel: UILabel!
     @IBOutlet weak var paymentTextfield: UITextField!
-    @IBOutlet weak var borrowerImageView: UIImageView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
     

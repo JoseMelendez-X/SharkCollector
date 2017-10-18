@@ -15,6 +15,7 @@ class SignInViewController: UIViewController {
    
     @IBOutlet weak var emailTextfield: UITextField!
     @IBOutlet weak var passwordTextfield: UITextField!
+    @IBOutlet weak var emailErrorLabel: UILabel!
     
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
@@ -36,6 +37,7 @@ class SignInViewController: UIViewController {
             if error != nil {
                 
                 //Handle errors here
+                self.emailErrorLabel.text = "Email or password is incorrect. Please try again"
                 print(error!.localizedDescription)
                 
             } else {
@@ -50,6 +52,11 @@ class SignInViewController: UIViewController {
                 //Clear password text
                 self.passwordTextfield.text = ""
                 
+                
+                //Erase error label text
+                self.emailErrorLabel.text = ""
+                
+                
             }
         }
     }
@@ -58,11 +65,10 @@ class SignInViewController: UIViewController {
     
     //SignUp Button
     @IBAction func signUpButtonTapped(_ sender: UIButton) {
-        
+   
         //Send user to signUpVC when this button is clicked
         performSegue(withIdentifier: "toSignUpVC", sender: self)
-        
-        
+      
     }
     
     
