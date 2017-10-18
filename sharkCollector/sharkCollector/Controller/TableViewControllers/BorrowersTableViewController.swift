@@ -175,9 +175,12 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
             shouldShowSearchResults = true
             self.tableView.reloadData()
         } else {
+            self.view.endEditing(true)
             shouldShowSearchResults = false
             self.tableView.reloadData()
         }
     }
+    
+ 
     
  }
