@@ -57,7 +57,6 @@ class AddBorrowerViewController: UIViewController {
                 } else {
                
                 //Handle success here
-            BorrowerViewController.sharedInstance
                print("messsaged saved successfully")
                     
             }

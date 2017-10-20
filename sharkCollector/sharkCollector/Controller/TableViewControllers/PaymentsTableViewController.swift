@@ -17,15 +17,29 @@ class PaymentsTableViewController: UITableViewController {
     var payments = [Payment]()
     
     var customDate = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Retrieve payments from database
         retrievePayments()
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(homeButtonTapped))
     }
 
-
+    //Function homeButtonTapped
+    @objc func homeButtonTapped() {
+    
+        for controller in self.navigationController!.viewControllers {
+            if controller.isKind(of: BorrowersTableViewController.self) {
+                self.navigationController!.popToViewController(controller, animated: true)
+                break
+            }
+        }
+        
+    }
+    
     // MARK: - Table view data source
  
     //numberOfRowsInSection

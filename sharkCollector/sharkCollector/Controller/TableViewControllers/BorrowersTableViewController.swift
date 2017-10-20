@@ -18,9 +18,7 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
     var borrowers = [Borrower]()
     var filteredBorrowers = [Borrower]()
     var keys = [String]()
-    
     var borrowerDictionary = [String: String]()
-    
     var shouldShowSearchResults = false
     var indexOfRowUserClicked: Int?
     var key = ""
@@ -209,7 +207,9 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
         shouldShowSearchResults = true
+        
         searchBar.endEditing(true)
+        
         self.tableView.reloadData()
     }
     
@@ -222,11 +222,17 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         })
     
         if searchText != "" {
+            
             shouldShowSearchResults = true
+            
             self.tableView.reloadData()
+            
         } else {
+            
             self.view.endEditing(true)
+            
             shouldShowSearchResults = false
+            
             self.tableView.reloadData()
         }
     }
