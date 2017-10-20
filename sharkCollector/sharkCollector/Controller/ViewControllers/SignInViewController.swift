@@ -17,10 +17,28 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var emailErrorLabel: UILabel!
     
+    @IBOutlet weak var signInButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Hide the navigation bar
+        self.navigationController?.isNavigationBarHidden = true
+        
+        signInButton.layer.borderWidth = 1.0
+        signInButton.layer.cornerRadius = 5
+        signUpButton.layer.borderWidth = 1.0
+        signUpButton.layer.cornerRadius = 5
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     //MARK: - IB-Actions
