@@ -21,7 +21,7 @@ class Borrower {
     var payments = [Payment]()
     
     //Tracker
-    var tracker = 0
+    var borrowerID = ""
     
     //Initializer
     init(name: String, debt: String) {

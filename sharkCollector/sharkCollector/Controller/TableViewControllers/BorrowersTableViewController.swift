@@ -17,8 +17,13 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
     //Array of borrowers
     var borrowers = [Borrower]()
     var filteredBorrowers = [Borrower]()
+    var keys = [String]()
+    
+    var borrowerDictionary = [String: String]()
+    
     var shouldShowSearchResults = false
     var indexOfRowUserClicked: Int?
+    var key = ""
     
     //IB-Outlets
     @IBOutlet weak var searchBar: UISearchBar!
@@ -57,9 +62,10 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         
         if shouldShowSearchResults {
             
+            print(filteredBorrowers.count)
            return filteredBorrowers.count
         }
-        
+            print(borrowers.count)
         return borrowers.count
     }
 
@@ -71,13 +77,14 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         if shouldShowSearchResults {
             
             cell.textLabel?.text = filteredBorrowers[indexPath.row].name
-            
+        
             return cell
+            
         } else {
         
         //Add the name to the table view
         cell.textLabel?.text = borrowers[indexPath.row].name
-        
+        print(borrowers[indexPath.row].name)
         return cell
         }
     }
@@ -87,6 +94,26 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         
         //Keep track of the row the user clicked
         indexOfRowUserClicked = indexPath.row
+
+        //Loop through the dictionary to assign proper key to name
+        if shouldShowSearchResults == true {
+            
+            for (key, value) in borrowerDictionary {
+                
+                if borrowers[indexPath.row].name == value{
+                    
+                    borrowers[indexPath.row].borrowerID = key
+                }
+            }
+            
+            
+        } else {
+        
+        borrowers[indexPath.row].borrowerID = keys[indexPath.row]
+        
+        print(keys[indexPath.row])
+            
+        }
         
         //Send user to BorrowerVC, when cell is tapped
         performSegue(withIdentifier: "toBorrowerVC", sender: self)
@@ -118,8 +145,24 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
             let destinationVC = segue.destination as! BorrowerViewController
             
             //Pass the borrower to the BorrowerVC
+            
+            
+            if shouldShowSearchResults  == false {
+                
+            //If user didn't search
             destinationVC.borrowerAtIndex = borrowers[indexOfRowUserClicked!]
-
+                
+            destinationVC.refKey = borrowers[indexOfRowUserClicked!].borrowerID
+                
+            } else {
+                
+                //If user did search
+                destinationVC.borrowerAtIndex = filteredBorrowers[indexOfRowUserClicked!]
+                
+                destinationVC.refKey = filteredBorrowers[indexOfRowUserClicked!].borrowerID
+            }
+            
+         
         }
         
     }
@@ -145,10 +188,17 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
             
             //Create a Borrower object
             let borrower = Borrower(name: name, debt: debt)
-            
+    
+            self.keys.append(snapshot.key)
             //Append this newly created object to the borrowers array
             self.borrowers.append(borrower)
+            
+            //Dictionary
+            self.borrowerDictionary[snapshot.key] = "\(borrower)"
+            print(self.borrowerDictionary)
             print(self.borrowers.count)
+            
+            print(self.borrowerDictionary)
             //Reload data
             self.tableView.reloadData()
         }

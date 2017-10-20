@@ -21,11 +21,10 @@ class BorrowerViewController: UIViewController{
     var borrowerAtIndex: Borrower!
     var selectedDate = ""
     let dateFormatter = DateFormatter()
+    var currentDebt = 0.0
+    var refKey: String?
     
-    //Declare the delegate variable here:
-   
     
-
     //MARK: - IB-Outlets
     @IBOutlet weak var borrowerNameLabel: UILabel!
     @IBOutlet weak var debtLabel: UILabel!
@@ -45,7 +44,8 @@ class BorrowerViewController: UIViewController{
         //Change the configuration of the date picker
         datePicker.datePickerMode = .date
         dateFormatter.dateFormat = "MMM dd, yyy"
-    
+      
+        print(refKey!)
     }
  
     
@@ -71,10 +71,21 @@ class BorrowerViewController: UIViewController{
         //Send payments to the payments database
         self.sendPaymentsToDatabase()
         
-
-        //Send user to PaymentsTVC
-        performSegue(withIdentifier: "toPaymentsTVC", sender: self)
+        //Set current debt value
+        currentDebt = Double(borrowerAtIndex.debt)! - Double(paymentTextfield.text!)!
         
+        //Set the borrwers debt to the current debt
+        borrowerAtIndex.debt = String(currentDebt)
+        
+        //Create a reference to the database
+       let debtNode = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
+        
+        //Locate the specific node you would like to update
+        debtNode.child(refKey!).updateChildValues(["debt" : String(currentDebt)])
+        
+     //Send user to PaymentsTVC
+     performSegue(withIdentifier: "toPaymentsTVC", sender: self)
+
     }
     
     //Prepare for segue
@@ -106,17 +117,20 @@ class BorrowerViewController: UIViewController{
         
         //Unwrap Optionals
         if let paid = paymentTextfield.text {
+            
         //Configure the selected date
         selectedDate = dateFormatter.string(from: datePicker.date)
-        print(selectedDate)
+            
         //Properties and values of our database
         let paymentDictionary = ["Amount paid" : paid, "Date": selectedDate] as [String : String]
         
         //Creates unique identifier for each entry to the database and sets the values
         paymentDB.childByAutoId().setValue(paymentDictionary) {
+            
             (error, ref) in
             
             if error != nil {
+                
                 //Handle errors here
                 print(error!.localizedDescription)
                 
@@ -124,8 +138,8 @@ class BorrowerViewController: UIViewController{
                 
                 //Handle success here
                 print("Saved successfully")
-            }
+          }
         }
+      }
     }
-  }
 }

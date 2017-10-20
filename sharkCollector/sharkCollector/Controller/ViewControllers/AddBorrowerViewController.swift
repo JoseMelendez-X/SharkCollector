@@ -12,6 +12,7 @@ import Firebase
 class AddBorrowerViewController: UIViewController {
 
     //MARK: - Variables and Constants
+    
 
     //MARK: - IB-Outlets
     @IBOutlet weak var enterNameTextfield: UITextField!
@@ -34,13 +35,13 @@ class AddBorrowerViewController: UIViewController {
 
     }
     
+    
     //MARK: - Firebase functions
     
     func sendBorrowersToDatabase() {
         
         //Creates a database named Borrowers
         let borrowers = Database.database().reference().child("Borrowers").child((Auth.auth().currentUser?.uid)!)
-        
         //Properties and values of our database
         let borrowersDictionary = ["name": enterNameTextfield.text!, "debt": enterAmountOfDebtTextfield.text!]
         
@@ -54,9 +55,10 @@ class AddBorrowerViewController: UIViewController {
                     print(error!)
                     
                 } else {
-                    
-                    //Handle success here
-                    print("messsaged saved successfully")
+               
+                //Handle success here
+            BorrowerViewController.sharedInstance
+               print("messsaged saved successfully")
                     
             }
         }
