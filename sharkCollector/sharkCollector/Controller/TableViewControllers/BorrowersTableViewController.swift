@@ -68,9 +68,12 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         if shouldShowSearchResults {
             
             print(filteredBorrowers.count)
+            
            return filteredBorrowers.count
+            
         }
             print(borrowers.count)
+        
         return borrowers.count
     }
 
@@ -89,7 +92,9 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         
         //Add the name to the table view
         cell.textLabel?.text = borrowers[indexPath.row].name
+            
         print(borrowers[indexPath.row].name)
+            
         return cell
         }
     }
