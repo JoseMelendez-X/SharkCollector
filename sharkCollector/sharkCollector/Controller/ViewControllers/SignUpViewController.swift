@@ -17,9 +17,13 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextfield: UITextField!
     @IBOutlet weak var confirmationPasswordTextfield: UITextField!
     
+    @IBOutlet weak var createAccountButton: UIButton!
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Make create account button rounded
+        createAccountButton.layer.cornerRadius = 5
         
     }
     
