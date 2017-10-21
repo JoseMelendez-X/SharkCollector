@@ -6,6 +6,7 @@ target 'sharkCollector' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Auth'
 	pod 'Firebase/Database'
+	pod 'SVProgressHUD'
   # Pods for sharkCollector
 
 end
