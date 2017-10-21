@@ -401,9 +401,6 @@
                             <outlet property="delegate" destination="Hi3-Qf-D5r" id="61E-a8-vpS"/>
                         </connections>
                     </tableView>
-                    <connections>
-                        <segue destination="H44-9o-Y7m" kind="show" identifier="toHome" id="35h-iZ-zKy"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G9m-gJ-BOu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
