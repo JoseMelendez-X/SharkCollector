@@ -30,6 +30,7 @@ class BorrowerViewController: UIViewController{
     @IBOutlet weak var debtLabel: UILabel!
     @IBOutlet weak var paymentTextfield: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var addPaymentButton: UIButton!
     
     
 
@@ -46,6 +47,11 @@ class BorrowerViewController: UIViewController{
         dateFormatter.dateFormat = "MMM dd, yyy"
       
         print(refKey!)
+        
+        //Make add payment button rounded
+        addPaymentButton.layer.cornerRadius = 5
+        
+        paymentTextfield.placeholder = "Payment Amount"
     }
  
     
