@@ -18,9 +18,13 @@ class AddBorrowerViewController: UIViewController {
     @IBOutlet weak var enterNameTextfield: UITextField!
     @IBOutlet weak var enterAmountOfDebtTextfield: UITextField!
     
+    @IBOutlet weak var addBorrowerButton: UIButton!
     //MARK: - ViewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Make addBorrowerButton round
+        addBorrowerButton.layer.cornerRadius = 5
         
     }
     
@@ -32,6 +36,8 @@ class AddBorrowerViewController: UIViewController {
             
             //Go back to BorrowersVC
             navigationController?.popViewController(animated: true)
+        
+      
 
     }
     
