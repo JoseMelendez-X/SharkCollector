@@ -30,14 +30,20 @@ class AddBorrowerViewController: UIViewController {
     
     //MARK: - IB-Actions
     @IBAction func addBorrowerButtonTapped(_ sender: UIButton) {
+        
+        //If the text fields are empty, pop back the BorrowersTVC
+        if enterNameTextfield.text == "" || enterAmountOfDebtTextfield.text == "" {
+            
+            navigationController?.popViewController(animated: true)
+            
+        } else {
       
             //Send information that the user entered to the database
              sendBorrowersToDatabase()
             
             //Go back to BorrowersVC
             navigationController?.popViewController(animated: true)
-        
-      
+        }
 
     }
     
