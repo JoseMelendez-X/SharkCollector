@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import SVProgressHUD
 class AddBorrowerViewController: UIViewController {
 
     //MARK: - Variables and Constants
@@ -37,9 +37,13 @@ class AddBorrowerViewController: UIViewController {
             navigationController?.popViewController(animated: true)
             
         } else {
-      
+            //Show loading animation
+            SVProgressHUD.show()
             //Send information that the user entered to the database
              sendBorrowersToDatabase()
+            
+            //Dismiss loading animation
+            SVProgressHUD.dismiss()
             
             //Go back to BorrowersVC
             navigationController?.popViewController(animated: true)

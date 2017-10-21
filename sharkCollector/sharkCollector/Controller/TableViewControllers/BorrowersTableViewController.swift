@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
     
@@ -37,9 +38,15 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         
         //Search bar delegate
         searchBar.delegate = self
+        
+        //Start loading animation
+        SVProgressHUD.show()
     
         //When the view loads retrieve borrowers
         retrieveBorrowersFromDatabase()
+        
+        //Dismiss load animation
+        SVProgressHUD.dismiss()
         
     }
     
@@ -176,7 +183,7 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
         
         //When new Borrower is added, we will grab that new borrower that was added
         borrowersDB.observe(.childAdded) { (snapshot) in
-        
+            
             //Grab the snapshot value wich in our case is [String: String]
             //The value of the snapshot needs to be casted as [String: String]
             let snapshotValue = snapshot.value as! Dictionary<String, String>
@@ -199,6 +206,7 @@ class BorrowersTableViewController: UITableViewController, UISearchBarDelegate{
             print(self.borrowerDictionary)
             //Reload data
             self.tableView.reloadData()
+            
         }
     }
     

@@ -47,6 +47,9 @@ class SignInViewController: UIViewController {
     //SignIn Button
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         
+        //loading animation start
+        SVProgressHUD.show()
+        
         //Unwrap optional values
         if let email = emailTextfield.text, let password = passwordTextfield.text {
         
@@ -58,6 +61,9 @@ class SignInViewController: UIViewController {
                 //Handle errors here
                 self.emailErrorLabel.text = "Email or password is incorrect. Please try again"
                 print(error!.localizedDescription)
+                
+                //Dismiss loading animation
+                SVProgressHUD.dismiss()
                 
             } else {
                 
@@ -75,7 +81,8 @@ class SignInViewController: UIViewController {
                 //Erase error label text
                 self.emailErrorLabel.text = ""
                 
-                
+                //Dismiss loading animation
+                SVProgressHUD.dismiss()
             }
         }
     }

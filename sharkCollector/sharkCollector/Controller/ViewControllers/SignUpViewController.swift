@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class SignUpViewController: UIViewController {
 
@@ -31,6 +32,9 @@ class SignUpViewController: UIViewController {
     
     @IBAction func createAccountButtonTapped(_ sender: UIButton) {
         
+        //Start loading animation
+        SVProgressHUD.show()
+        
         //Unwrap optionals
         if let email = emailTextfield.text, let password = passwordTextfield.text, let confirmPassword = confirmationPasswordTextfield.text  {
             
@@ -44,6 +48,9 @@ class SignUpViewController: UIViewController {
                     //Handle errors here
                     print(error!.localizedDescription)
                     
+                    //Dismiss loading animation
+                    SVProgressHUD.dismiss()
+                    
                 } else {
                     
                     //Handle successful creation of new user here
@@ -53,6 +60,9 @@ class SignUpViewController: UIViewController {
                     //Send user to BorrowersTVC
                     self.performSegue(withIdentifier: "toBorrowersTVC", sender: self)
                     
+                    //Dismiss loading animation
+                    SVProgressHUD.dismiss()
+                    
                 }
                 
             })
@@ -61,6 +71,9 @@ class SignUpViewController: UIViewController {
                 
                 //Handle password erros here
                 print("Passwords do not match")
+                
+                //Dismiss loading animation
+                SVProgressHUD.dismiss()
                 
             }
         }

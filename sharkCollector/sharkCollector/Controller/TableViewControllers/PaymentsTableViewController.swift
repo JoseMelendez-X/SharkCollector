@@ -8,7 +8,7 @@
 
 import UIKit
 import Firebase
-
+import SVProgressHUD
 class PaymentsTableViewController: UITableViewController {
     
     //MARK: Variables and Constants
@@ -22,8 +22,14 @@ class PaymentsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Start load animation
+        SVProgressHUD.show()
+        
         //Retrieve payments from database
         retrievePayments()
+        
+        //Dismiss load Animation
+        SVProgressHUD.dismiss()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Home", style: .plain, target: self, action: #selector(homeButtonTapped))
     }
@@ -32,8 +38,11 @@ class PaymentsTableViewController: UITableViewController {
     @objc func homeButtonTapped() {
     
         for controller in self.navigationController!.viewControllers {
+            
             if controller.isKind(of: BorrowersTableViewController.self) {
+                
                 self.navigationController!.popToViewController(controller, animated: true)
+                
                 break
             }
         }
