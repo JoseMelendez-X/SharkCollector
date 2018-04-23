@@ -4,7 +4,7 @@ This app will allow you to keep track of money owed to you.
 # Backend 
 * Firebase
 
-![](https://media.giphy.com/media/3qsFA2XTFNClTy1RPL/giphy.gif)
+![](https://media.giphy.com/media/3gNorOcY87dXSGiak5/giphy.gif)
 
 
 Sign In Page            
